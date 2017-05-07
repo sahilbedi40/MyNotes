@@ -1,0 +1,33 @@
+ <div class="col-md-12">
+   <div class="col-md-5"></div>
+   <div class="col-md-5"></div>
+   <div class="col-md-2">
+     <button class="btn btn-primary pull-right" (click)="AddNote()">Add Note</button>
+   </div>
+    
+  </div>
+
+<div clas="row">
+ 
+  <div class="col-md-12">
+     <div class="col-md-2"></div>
+     <div class="col-md-8">
+       <div [hidden]="isHidden" class="well well-sm text-center">
+         No Records Found
+       </div>
+       <ul [hidden]="!isHidden">
+            <li *ngFor="let item of NoteList">
+                <a (click)="UpdateNote(item)" title="Click to Edit Note">
+                    <h2>{{item.Name}}</h2>
+                    <p>
+                     {{item.Description}}
+                    </p>
+                </a>
+            </li>
+       </ul>
+     </div>
+     <div class="col-md-2"></div>
+  </div>
+</div>
+
+<app-task-popup (removeDetail)="HandleRemoveNote($event)" (saveDetail)="handleSaveNote($event)"></app-task-popup>
