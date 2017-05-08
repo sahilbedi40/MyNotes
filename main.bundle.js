@@ -58,6 +58,9 @@ var NoteService = (function () {
     NoteService.prototype.RemoveNote = function (key) {
         return this.notes.remove(key);
     };
+    NoteService.prototype.ClearNotesArray = function () {
+        //this.notes=Observable.of<INote>();
+    };
     NoteService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2__["d" /* AngularFire */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angularfire2__["d" /* AngularFire */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__authenticate_service__["a" /* AuthenticateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__authenticate_service__["a" /* AuthenticateService */]) === 'function' && _b) || Object])
@@ -688,12 +691,14 @@ var AppComponent = (function () {
         this.userName = "test";
         this.authService.userInfo.subscribe(function (userDetails) {
             _this.userName = userDetails.Name;
-            _this.imgUrl = userDetails.PhotoUrl != "" ? userDetails.PhotoUrl : "../assets/images/noimage.jpg";
+            //let url=location.pathname.indexOf('MyNotes') > 0 ? '/MyNotes/assets/images/noimage.jpg' : '/assets/images/noimage.jpg';
+            _this.imgUrl = userDetails.PhotoUrl != "" ? userDetails.PhotoUrl : '/assets/images/noimage.jpg';
         });
     }
     AppComponent.prototype.LogOut = function () {
         this.authService.LogOut();
-        this.route.navigate(["./Login"]);
+        this.route.navigate(["Login"]);
+        window.location.reload();
     };
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
@@ -1042,17 +1047,17 @@ var AuthenticateService = (function () {
         return false;
     };
     AuthenticateService.prototype.LogOut = function () {
-        // this.user = {
-        //        Name: "",
-        //        Email: "",
-        //        PhotoUrl:"",
-        //        AuthUserID: "",
-        //        Password:"",
-        //        GmailEnabled:false,
-        //        OutLookEnabled:false
-        //        };
+        this.user = {
+            Name: "",
+            Email: "",
+            PhotoUrl: "",
+            AuthUserID: "",
+            Password: "",
+            GmailEnabled: false,
+            OutLookEnabled: false
+        };
         this.isAuthenticate = false;
-        //this._userAuthenticated.next(this.user);
+        this._userAuthenticated.next(this.user);
     };
     AuthenticateService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
