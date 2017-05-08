@@ -691,7 +691,8 @@ var AppComponent = (function () {
         this.userName = "test";
         this.authService.userInfo.subscribe(function (userDetails) {
             _this.userName = userDetails.Name;
-            var url = location.pathname.indexOf('MyNotes') > 0 ? '/MyNotes/assets/images/noimage.jpg' : '/assets/images/noimage.jpg';
+            var url = window.location.pathname.indexOf("MyNotes") > 0 ? "/MyNotes/assets/images/noimage.jpg" : "/assets/images/noimage.jpg";
+            console.log(url);
             _this.imgUrl = userDetails.PhotoUrl != "" ? userDetails.PhotoUrl : url;
         });
     }
