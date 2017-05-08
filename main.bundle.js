@@ -691,13 +691,13 @@ var AppComponent = (function () {
         this.userName = "test";
         this.authService.userInfo.subscribe(function (userDetails) {
             _this.userName = userDetails.Name;
-            //let url=location.pathname.indexOf('MyNotes') > 0 ? '/MyNotes/assets/images/noimage.jpg' : '/assets/images/noimage.jpg';
-            _this.imgUrl = userDetails.PhotoUrl != "" ? userDetails.PhotoUrl : '/assets/images/noimage.jpg';
+            var url = location.pathname.indexOf('MyNotes') > 0 ? '/MyNotes/assets/images/noimage.jpg' : '/assets/images/noimage.jpg';
+            _this.imgUrl = userDetails.PhotoUrl != "" ? userDetails.PhotoUrl : url;
         });
     }
     AppComponent.prototype.LogOut = function () {
         this.authService.LogOut();
-        this.route.navigate(["Login"]);
+        this.route.navigate([""]);
         window.location.reload();
     };
     AppComponent = __decorate([
