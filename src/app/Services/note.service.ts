@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {INote} from '../Helper/Notes';
 import {AuthenticateService} from './authenticate.service';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {Observable} from  'rxjs/Rx';
 @Injectable()
 export class NoteService {
 private notes:FirebaseListObservable<INote[]>;
@@ -37,6 +38,11 @@ private notes:FirebaseListObservable<INote[]>;
    RemoveNote(key:string)
    {
      return this.notes.remove(key);
+   }
+
+   ClearNotesArray()
+   {
+     //this.notes=Observable.of<INote>();
    }
    
 }

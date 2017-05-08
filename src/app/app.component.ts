@@ -16,13 +16,16 @@ export class AppComponent {
     this.userName ="test";
     this.authService.userInfo.subscribe(userDetails => {
       this.userName = userDetails.Name;
-      this.imgUrl=userDetails.PhotoUrl !="" ?userDetails.PhotoUrl:"../assets/images/noimage.jpg";
+      var url=window.location.pathname.indexOf("MyNotes") > 0 ? "/MyNotes/assets/images/noimage.jpg" : "/assets/images/noimage.jpg";
+      console.log(url);
+      this.imgUrl=userDetails.PhotoUrl !="" ? userDetails.PhotoUrl : url;
     })
   }
 
    LogOut(){
-     this.authService.LogOut();
-    this.route.navigate(["./Login"]);
+     this.authService.LogOut();     
+    this.route.navigate([""]);
+    window.location.reload();
    }
 
 }

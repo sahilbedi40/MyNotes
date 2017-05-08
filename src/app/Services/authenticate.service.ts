@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Rx';
 import { IUserInfo } from '../Helper/UserInfo';
 import { AngularFire, AuthProviders, FirebaseListObservable } from 'angularfire2';
 
+
 @Injectable()
 export class AuthenticateService {
   isAuthenticate: boolean = false;
@@ -41,17 +42,17 @@ userAuthenticated(userDetails){
 
   LogOut()
   {
-    // this.user = {
-    //        Name: "",
-    //        Email: "",
-    //        PhotoUrl:"",
-    //        AuthUserID: "",
-    //        Password:"",
-    //        GmailEnabled:false,
-    //        OutLookEnabled:false
-    //        };
+    this.user = {
+           Name: "",
+           Email: "",
+           PhotoUrl:"",
+           AuthUserID: "",
+           Password:"",
+           GmailEnabled:false,
+           OutLookEnabled:false
+          }; 
       this.isAuthenticate = false;
-      //this._userAuthenticated.next(this.user);
+      this._userAuthenticated.next(this.user);
   }
 
 }
