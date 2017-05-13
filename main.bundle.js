@@ -765,7 +765,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var appRoutes = [
-    { path: '', pathMatch: 'full', redirectTo: 'Login' },
+    { path: '', pathMatch: 'full', redirectTo: '/Login' },
     { path: 'Login', component: __WEBPACK_IMPORTED_MODULE_9__Components_login_login_component__["a" /* LoginComponent */] },
     { path: 'Dashboard', component: __WEBPACK_IMPORTED_MODULE_8__Components_dash_board_dash_board_component__["a" /* DashBoardComponent */] },
     { path: 'AccountSettings', component: __WEBPACK_IMPORTED_MODULE_11__Components_social_media_settings_social_media_settings_component__["a" /* SocialMediaSettingsComponent */] },
