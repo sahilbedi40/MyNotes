@@ -792,7 +792,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_14__Components_register_register_component__["a" /* RegisterComponent */], __WEBPACK_IMPORTED_MODULE_15__Components_set_password_set_password_component__["a" /* SetPasswordComponent */], __WEBPACK_IMPORTED_MODULE_12__Components_loader_loader_component__["a" /* LoaderComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
+                __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes, { useHash: true }),
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
